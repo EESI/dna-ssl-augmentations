@@ -24,7 +24,7 @@ Implemented DNA sequence augmentations include:
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dna-ssl-augmentations.git
+git clone https://github.com/EESI/dna-ssl-augmentations.git
 cd dna-ssl-augmentations
 pip install -r requirements.txt
 ```
