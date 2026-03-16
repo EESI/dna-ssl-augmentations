@@ -1,0 +1,5 @@
+data/amr/*.csv
+data/oncovirus/*.csv
+outputs/*
+__pycache__/
+*.pyc
