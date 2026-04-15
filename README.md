@@ -43,7 +43,9 @@ dna-ssl-augmentations/
 │   ├── run_amr_fixmatch.py
 │   ├── run_amr_flexmatch.py
 │   ├── run_oncovirus_fixmatch.py
-│   └── run_oncovirus_flexmatch.py
+│   ├── run_oncovirus_flexmatch.py
+│   ├── train.py
+│   └── inference.py
 ├── data/
 │   ├── amr/
 │   └── oncovirus/
