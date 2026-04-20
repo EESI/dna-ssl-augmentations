@@ -128,6 +128,8 @@ After training, the following files will be saved in `output_dir`:
 
 ---
 
+
+
 ## Inference
 
 Run prediction on new sequences:
@@ -169,6 +171,16 @@ ACGTACGTACGT,1,1,0.9321,0.0679,0.9321
 TTGCAATGCCAA,0,0,0.8812,0.8812,0.1188
 ```
 
+
+---
+
+## Semi-Supervised Fine-Tuned Models
+
+Semi-supervised fine-tuned models for AMR and Oncovirus classification are available on Zenodo:
+
+https://doi.org/10.5281/zenodo.19671648
+
+Each model archive contains the files required for inference. After downloading and extracting, use the extracted directory as `--model_dir`.
 
 ---
 
