@@ -212,6 +212,16 @@ data/oncovirus/test.csv
 
 ---
 
+### Dataset Access
+
+The AMR datasets used in this project can be obtained from the following sources:
+
+https://drive.google.com/drive/folders/1GSVMmW-T3E0ua94qxzU-lXU3-Ozxp7op?usp=sharing
+
+
+
+---
+
 ## Expected CSV format
 
 Each CSV file should contain at least the following columns:
