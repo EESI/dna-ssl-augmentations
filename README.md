@@ -174,7 +174,7 @@ TTGCAATGCCAA,0,0,0.8812,0.8812,0.1188
 
 ---
 
-## Semi-Supervised Fine-Tuned Models
+### Semi-Supervised Fine-Tuned Models
 
 Semi-supervised fine-tuned models for AMR and Oncovirus classification are available on Zenodo:
 
