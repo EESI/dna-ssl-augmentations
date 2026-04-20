@@ -99,7 +99,6 @@ python src/train.py \
   --method fixmatch \
   --weak_aug nn \
   --strong_aug mutation \
-  --model_name PoetschLab/GROVER \
   --output_dir outputs/my_fixmatch_run
 ```
 
@@ -113,7 +112,6 @@ python src/train.py \
   --method flexmatch \
   --weak_aug nn \
   --strong_aug mutation \
-  --model_name PoetschLab/GROVER \
   --output_dir outputs/my_flexmatch_run
 ```
 
