@@ -264,4 +264,171 @@ python src/run_oncovirus_flexmatch.py
 
 
 
+## FASTA support
+
+This repository expects CSV inputs for training and inference.
+If your data is in FASTA format, you can convert it to the required CSV format using the provided utility script as shown below:
+
+
+
+
+### 1) unlabeled FASTA → CSV
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/unlabeled.fasta \
+  --output_csv data/mytask/unlabeled.csv \
+  --unlabeled
+```
+
+Output:
+
+```csv
+sequence
+ACGTACGTACGT
+TTGCAATGCCAA
+```
+
+### 2) labeled FASTA, header as a label
+
+FASTA:
+
+```text
+>class0
+ACGTACGTACGT
+>class1
+TTGCAATGCCAA
+```
+
+Command:
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/labeled.fasta \
+  --output_csv data/mytask/labeled.csv \
+  --label-from-header
+```
+
+Output:
+
+```csv
+sequence,label
+ACGTACGTACGT,class0
+TTGCAATGCCAA,class1
+```
+
+### 3) labeled FASTA, parse header with delimiter to extract label
+
+FASTA:
+
+```text
+>seq001|0
+ACGTACGTACGT
+>seq002|1
+TTGCAATGCCAA
+```
+
+Command:
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/labeled.fasta \
+  --output_csv data/mytask/labeled.csv \
+  --header-split-delim "|" \
+  --label-index 1
+```
+
+### 4) labeled FASTA, key=value format to extract label 
+
+FASTA:
+
+```text
+>seq001 sample=a label=0
+ACGTACGTACGT
+>seq002 sample=b label=1
+TTGCAATGCCAA
+```
+
+Command:
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/labeled.fasta \
+  --output_csv data/mytask/labeled.csv \
+  --label-key label
+```
+
+
+### Training with FASTA(convert to CSV first)
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/labeled.fasta \
+  --output_csv data/mytask/labeled.csv \
+  --header-split-delim "|" \
+  --label-index 1
+
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/unlabeled.fasta \
+  --output_csv data/mytask/unlabeled.csv \
+  --unlabeled
+
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/val.fasta \
+  --output_csv data/mytask/val.csv \
+  --header-split-delim "|" \
+  --label-index 1
+
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/test.fasta \
+  --output_csv data/mytask/test.csv \
+  --header-split-delim "|" \
+  --label-index 1
+```
+
+FixMatch:
+
+```bash
+python src/train.py \
+  --labeled_csv data/mytask/labeled.csv \
+  --unlabeled_csv data/mytask/unlabeled.csv \
+  --val_csv data/mytask/val.csv \
+  --test_csv data/mytask/test.csv \
+  --method fixmatch \
+  --weak_aug nn \
+  --strong_aug mutation \
+  --output_dir outputs/my_fixmatch_run
+```
+
+FlexMatch:
+
+```bash
+python src/train.py \
+  --labeled_csv data/mytask/labeled.csv \
+  --unlabeled_csv data/mytask/unlabeled.csv \
+  --val_csv data/mytask/val.csv \
+  --test_csv data/mytask/test.csv \
+  --method flexmatch \
+  --weak_aug nn \
+  --strong_aug mutation \
+  --output_dir outputs/my_flexmatch_run
+```
+
+### Inference with FASTA(convert FASTA to CSV fisrt)
+
+```bash
+python src/fasta_to_csv.py \
+  --input_fasta data/mytask/new_sequences.fasta \
+  --output_csv data/mytask/new_sequences.csv \
+  --unlabeled
+```
+
+inference:
+
+```bash
+python src/inference.py \
+  --model_dir outputs/my_flexmatch_run \
+  --input_csv data/mytask/new_sequences.csv \
+  --output_csv outputs/my_flexmatch_run/predictions.csv
+```
 
