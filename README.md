@@ -38,6 +38,7 @@ dna-ssl-augmentations/
 ├── src/
 │   ├── augmentations.py
 │   ├── common.py
+│   ├── fasta_to_csv.py
 │   ├── fixmatch_core.py
 │   ├── flexmatch_core.py
 │   ├── run_amr_fixmatch.py
