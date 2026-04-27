@@ -432,3 +432,66 @@ python src/inference.py \
   --output_csv outputs/my_flexmatch_run/predictions.csv
 ```
 
+
+
+
+
+## Auto FASTA Pipeline
+
+The Auto FASTA Pipeline allows you to use FASTA files directly for training and inference without manually converting them to CSV.  
+It automatically converts FASTA → CSV internally and runs the existing pipeline.
+
+---
+
+### Label format (required)
+
+For labeled FASTA, the label must be an **integer placed after a space at the end of the header**:
+
+```fasta
+>seq001 0
+ACGTACGTACGT
+>seq002 1
+TTGCAATGCCAA
+````
+
+* The last whitespace-separated token is used as the label
+* Labels must be integers (0, 1, 2, ...)
+
+Unlabeled FASTA:
+
+```fasta
+>seq001
+ACGTACGTACGT
+```
+
+---
+
+### Train
+
+```bash
+python src/fasta_auto_pipeline.py \
+  --mode train \
+  --labeled_fasta data/labeled.fasta \
+  --unlabeled_fasta data/unlabeled.fasta \
+  --val_fasta data/val.fasta \
+  --test_fasta data/test.fasta \
+  --method fixmatch \
+  --weak_aug nn \
+  --strong_aug mutation \
+  --output_dir outputs/run
+```
+
+---
+
+### Inference
+
+```bash
+python src/fasta_auto_pipeline.py \
+  --mode inference \
+  --input_fasta data/test.fasta \
+  --model_dir outputs/run \
+  --output_csv outputs/run/predictions.csv
+```
+
+
+
