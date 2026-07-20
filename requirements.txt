@@ -1,6 +1,9 @@
-torch
-transformers
-pandas
-numpy
-scikit-learn
-tqdm
+torch==2.4.1
+transformers==4.45.2
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.5.2
+tqdm==4.66.5
+safetensors==0.4.5
+huggingface-hub==0.25.2
+tokenizers==0.20.1
