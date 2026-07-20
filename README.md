@@ -495,3 +495,20 @@ python src/fasta_auto_pipeline.py \
 
 
 
+## Conda  
+```bash
+conda env create -f environment.yml
+conda activate dna-ssl-augmentations
+python scripts/smoke_test.py
+python src/train.py --help
+```
+
+
+
+## Docker  
+```bash
+docker build -t dna-ssl-augmentations .
+docker run --rm dna-ssl-augmentations scripts/smoke_test.py
+docker run --rm dna-ssl-augmentations src/train.py --help
+```
+
