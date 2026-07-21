@@ -13,7 +13,7 @@ RUN python -m pip install --upgrade pip setuptools wheel && \
 
 COPY . /app
 
-RUN python scripts/smoke_test.py
+RUN python src/smoke_test.py
 
 ENTRYPOINT ["python"]
 CMD ["src/train.py", "--help"]
