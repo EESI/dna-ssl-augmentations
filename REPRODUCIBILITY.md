@@ -10,7 +10,7 @@ Create and activate the environment from the repository root:
 ```bash
 conda env create -f environment.yml
 conda activate dna-ssl-augmentations
-python scripts/smoke_test.py
+python src/smoke_test.py
 ```
 
 To remove and recreate the environment:
@@ -31,7 +31,7 @@ docker build -t dna-ssl-augmentations .
 Run the offline import smoke test:
 
 ```bash
-docker run --rm dna-ssl-augmentations scripts/smoke_test.py
+docker run --rm dna-ssl-augmentations src/smoke_test.py
 ```
 
 Show the training command help:
@@ -74,7 +74,7 @@ docker run --rm \
 The following command verifies the package imports without downloading a model:
 
 ```bash
-python scripts/smoke_test.py
+python src/smoke_test.py
 ```
 
 A full model-loading check requires network access:
