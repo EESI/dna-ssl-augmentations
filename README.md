@@ -45,13 +45,17 @@ dna-ssl-augmentations/
 │   ├── run_amr_flexmatch.py
 │   ├── run_oncovirus_fixmatch.py
 │   ├── run_oncovirus_flexmatch.py
+│   ├── smoke_test.py
 │   ├── train.py
 │   └── inference.py
 ├── data/
 │   ├── amr/
 │   └── oncovirus/
 ├── outputs/
+├── Dockerfile
+├── environment.yml
 ├── requirements.txt
+├── REPRODUCIBILITY.md
 └── README.md
 
 
