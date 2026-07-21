@@ -257,7 +257,14 @@ def main() -> None:
             ]
 
             append_optional_arg(cmd, "--epochs", args.epochs)
-            append_optional_arg(cmd, "--batch_size", args.batch_size)
+            # append_optional_arg(cmd, "--batch_size", args.batch_size)
+            if args.batch_size is not None:
+                for option in (
+                    "--labeled_batch_size",
+                    "--unlabeled_batch_size",
+                    "--eval_batch_size",
+                ):
+                    append_optional_arg(cmd, option, args.batch_size)
             append_optional_arg(cmd, "--lr", args.lr)
             append_optional_arg(cmd, "--seed", args.seed)
 
