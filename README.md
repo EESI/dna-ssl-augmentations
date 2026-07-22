@@ -516,3 +516,9 @@ docker run --rm dna-ssl-augmentations src/smoke_test.py
 docker run --rm dna-ssl-augmentations src/train.py --help
 ```
 
+
+## Example dataset  
+```bash
+https://drive.google.com/drive/folders/1Zf-Lzf0Putv5DdLulQqIifGA8D9o2N-l?usp=sharing
+```
+You can download the download dataset via google drive.  
