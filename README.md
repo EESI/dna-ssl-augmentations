@@ -61,6 +61,13 @@ dna-ssl-augmentations/
 
 ## Installation
 
+### Requirements
+
+- Python 3.10
+- PyTorch 2.4.1
+- Internet access for the first download of the `PoetschLab/GROVER` model
+- A CUDA-capable GPU is recommended for training, although the installation and smoke test can run on CPU
+
 Clone the repository and install dependencies:
 
 ```bash
@@ -517,8 +524,24 @@ docker run --rm dna-ssl-augmentations src/train.py --help
 ```
 
 
-## Example dataset  
+Expected smoke-test output:
+
+```text
+torch=2.4.1
+transformers=4.45.2
+numpy=1.26.4
+pandas=2.2.3
+scikit-learn=1.5.2
+Core imports: OK
+AutoTokenizer import: OK
+AutoModelForSequenceClassification import: OK
+```
+
+## Test Example dataset  
+
+Dataset for checking the training and inference pipeline is available at:
+
 ```bash
 https://drive.google.com/drive/folders/1Zf-Lzf0Putv5DdLulQqIifGA8D9o2N-l?usp=sharing
 ```
-You can download the download dataset via google drive.  
+Download the files and place them under right direction.  
